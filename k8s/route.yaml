@@ -3,7 +3,7 @@ kind: Route
 metadata:                                                                 
   name: simon-argocd                                                        
   labels:                                                                 
-    app: simon-argocd                                                    
+    app: simon-argocd                                                       
 spec:                                                                     
   to:                                                                     
     kind: Service                                                         

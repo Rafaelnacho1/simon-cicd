@@ -1,36 +1,28 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: simon-argocd
-  labels:
-    app: simon-argocd
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: simon-argocd
-  template:
-    metadata:
-      labels:
-        app: simon-argocd
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: html-volume
-          mountPath: /usr/share/nginx/html
-        resources:                  # Lägg till detta om quota kräver (från tidigare fel)
-          requests:
-            memory: "64Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
-            cpu: "200m"
-      volumes:
-      - name: html-volume
-        configMap:
-          name: simon-html
-          optional: true
+apiVersion: apps/v1                                                       
+kind: Deployment                                                          
+metadata:                                                                 
+  name: simon-argocd                                                        
+  labels:                                                                 
+    app: simon-argocd                                                       
+spec:                                                                     
+  replicas: 2                                                             
+  selector:                                                               
+    matchLabels:                                                          
+      app: simon-argocd                                                     
+  template:                                                               
+    metadata:                                                             
+      labels:                                                             
+        app: simon-argocd                                                   
+    spec:                                                                 
+      containers:                                                         
+        - name: nginx                                                       
+          image: quay.io/kurs/demoserver-a:latest                                                 
+          ports:                                                            
+          - containerPort: 5000                                              
+          resources:                                                        
+            requests:                                                       
+              memory: "64Mi"                                                
+              cpu: "100m"                                                   
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
