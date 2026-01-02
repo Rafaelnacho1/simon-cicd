@@ -1,11 +1,11 @@
-apiVersion: route.openshift.io/v1                                         
+:apiVersion: route.openshift.io/v1                                         
 kind: Route                                                               
 metadata:                                                                 
-  name: jonas-nginx-demo                                                        
+  name: simon-argocd                                                        
   labels:                                                                 
-    app: jonas-nginx-demo                                                       
+    app: simon-argocd                                                       
 spec:                                                                     
   to:                                                                     
     kind: Service                                                         
-    name: jonas-nginx-demo                                                      
+    name: simon-argocd                                                      
     weight: 100
