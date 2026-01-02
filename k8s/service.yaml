@@ -3,7 +3,7 @@ kind: Service
 metadata:                                                                 
   name: simon-argocd
   labels:
-    app: simon-nginx
+    app: simon-argocd
 spec:
   type: ClusterIP
   ports:
@@ -11,4 +11,4 @@ spec:
     targetPort: 5000
     protocol: TCP
   selector:
-    app: simon-nginx
+    app: simon-argocd
