@@ -1,0 +1,64 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return '''
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon ArgoCD Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+        }
+        .btn {
+            background-color: #00bfff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0099cc;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Välkommen till min ArgoCD-app!</h1>
+    <p>Detta är en demo deployad med OpenShift GitOps 🚀</p>
+    <p>Server: demoserver-a (Flask running ✓)</p>
+    <a href="https://github.com/Rafaelnacho1/simon-cicd" class="btn">Se koden på GitHub</a>
+    <footer>Skapad av Simon | Namespace: grupp3</footer>
+</body>
+</html>
+    '''
