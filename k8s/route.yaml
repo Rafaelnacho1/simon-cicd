@@ -1,13 +1,11 @@
-:apiVersion: route.openshift.io/v1                                         
+apiVersion: route.openshift.io/v1                                         
 kind: Route                                                               
 metadata:                                                                 
   name: simon-argocd                                                        
   labels:                                                                 
-    app: simon-argocd                                                       
-spec:
-  ignoreDifferences:
-  - group: route.openshift.io
-    kind: Route
-    jsonPointers:
-    - /spec/host
-    - /status 
+    app: simon-argocd                                                    
+spec:                                                                     
+  to:                                                                     
+    kind: Service                                                         
+    name: simon-argocd                                                      
+    weight: 100
